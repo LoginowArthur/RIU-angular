@@ -1,0 +1,32 @@
+<form [formGroup]="heroForm">
+    <div>
+        <label for="name">Name</label>
+        <input type="text" id="name" formControlName="name">
+    </div>
+    <div>
+        <label for="location">Location</label>
+        <input type="text" id="location" formControlName="location">                           
+     </div>
+     <div>
+        <label for="power">Power</label>
+        <input type="number" id="power" formControlName="power">
+     </div>
+     <div>
+        <label>
+            <input type="radio" name="status" value="1" formControlName="status">
+            Available
+        </label>
+        <label>
+            <input type="radio" name="status" value="2" formControlName="status">
+            Missing
+        </label>
+        <label>
+            <input type="radio" name="status" value="3" formControlName="status">
+            Dead
+        </label>
+    </div>
+    <div>
+        <label for="motto">Motto</label>
+        <input type="text" id="motto" formControlName="motto">
+    </div>
+</form> 
