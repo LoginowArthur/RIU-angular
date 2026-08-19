@@ -1,32 +1,33 @@
-<form [formGroup]="heroForm">
-    <div>
-        <label for="name">Name</label>
-        <input type="text" id="name" formControlName="name">
-    </div>
-    <div>
-        <label for="location">Location</label>
-        <input type="text" id="location" formControlName="location">                           
-     </div>
-     <div>
-        <label for="power">Power</label>
-        <input type="number" id="power" formControlName="power">
-     </div>
-     <div>
-        <label>
-            <input type="radio" name="status" value="1" formControlName="status">
-            Available
-        </label>
-        <label>
-            <input type="radio" name="status" value="2" formControlName="status">
-            Missing
-        </label>
-        <label>
-            <input type="radio" name="status" value="3" formControlName="status">
-            Dead
-        </label>
-    </div>
-    <div>
-        <label for="motto">Motto</label>
-        <input type="text" id="motto" formControlName="motto">
+<form [formGroup]="heroForm" (ngSubmit)="onSubmit()">
+    <mat-form-field>
+        <mat-label>Name</mat-label>
+        <input matInput type="text" id="name" formControlName="name">
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Location</mat-label>
+        <input matInput type="text" id="location" formControlName="location">
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Power</mat-label>
+        <input matInput type="number" id="power" formControlName="power" min="0" max="100">
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Motto</mat-label>
+        <input matInput type="text" id="motto" formControlName="motto">
+    </mat-form-field>
+    <mat-radio-group formControlName="status" aria-label="Select a hero status">
+        <mat-radio-button value="1">Available</mat-radio-button>
+        <mat-radio-button value="2">Missing</mat-radio-button>
+        <mat-radio-button value="3">Dead</mat-radio-button>
+    </mat-radio-group>
+
+    <div class="footer">
+        <button matButton="filled" type="submit" [disabled]="heroForm.invalid">
+            Save
+        </button>
     </div>
 </form> 
+
+
+
+
