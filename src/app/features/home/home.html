@@ -1,0 +1,5 @@
+<input type="text">
+
+@for (hero of (heroes |async); track hero.id) {
+    <div>{{hero.name}}</div>
+}
