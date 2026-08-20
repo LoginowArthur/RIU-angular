@@ -1,0 +1,21 @@
+.card-layout {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    button {
+        &:first-of-type {
+            margin-right: 8px;
+        }
+    } 
+
+    button[mat-mini-fab] {
+        box-shadow: none !important;
+
+        &:hover,
+        &:focus,
+        &:active {
+            box-shadow: none !important;
+        }
+    }
+}
