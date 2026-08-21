@@ -15,4 +15,12 @@ import { HeroesListItem } from './components/heroes-list-item/heroes-list-item'
 export class Home {
   private http = inject(HttpClient);
   heroes = this.http.get<Hero[]>('mocks/heroes.json');
+
+  onEdit(id: string) {
+    console.log('on edit', id)
+  }
+
+  onDelete(id: string) {
+    console.log('on delete', id)
+  }
 }

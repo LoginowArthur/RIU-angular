@@ -4,6 +4,11 @@
 </mat-form-field>
 <div class="list-container">
     @for (hero of (heroes |async); track hero.id) {
-        <heroes-list-item [name]="hero.name"></heroes-list-item>
+        <heroes-list-item 
+            [id]="hero.id" 
+            [name]="hero.name"
+            (edit)="onEdit($event)" 
+            (delete)="onDelete($event)">
+        </heroes-list-item>
     }
 </div>

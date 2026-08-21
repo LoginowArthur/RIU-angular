@@ -2,10 +2,10 @@
     <mat-card-content class="card-layout">
         <span>{{name()}}</span>
         <div>
-            <button mat-mini-fab elevation="0" aria-label="Edit Hero">
+            <button mat-mini-fab (click)="onEdit()" elevation="0" aria-label="Edit Hero">
                 <mat-icon>edit</mat-icon>
             </button>
-            <button mat-mini-fab elevation="0" aria-label="Delete Hero">
+            <button mat-mini-fab (click)="onDelete()" elevation="0" aria-label="Delete Hero">
                 <mat-icon>delete</mat-icon>
             </button>
         </div>
