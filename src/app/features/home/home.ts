@@ -5,6 +5,7 @@ import { Hero } from '../heroes/models/hero.model'
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { HeroesListItem } from './components/heroes-list-item/heroes-list-item'
+import { Heroes } from '../heroes/services/heroes'
 
 @Component({
   selector: 'app-home',
@@ -13,14 +14,18 @@ import { HeroesListItem } from './components/heroes-list-item/heroes-list-item'
   styleUrl: './home.scss',
 })
 export class Home {
-  private http = inject(HttpClient);
-  heroes = this.http.get<Hero[]>('mocks/heroes.json');
+  heroesService = inject(Heroes);
+  heroes = this.heroesService.heroes;
+
+  ngOnInit() {
+    this.heroesService.loadHeroes();
+  }
 
   onEdit(id: string) {
-    console.log('on edit', id)
+    console.log('on edit', id);
   }
 
   onDelete(id: string) {
-    console.log('on delete', id)
+    console.log('on delete', id);
   }
 }
