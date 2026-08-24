@@ -17,10 +17,6 @@ export class HeroFormDialogContainer implements OnInit {
   private readonly destroyRef = inject(DestroyRef);
 
   ngOnInit(): void {
-    if (!this.router.url.includes('heroes/add')) {
-      return;
-    }
-
     const dialogRef = this.dialog.open(HeroForm, {
       width: '800px',
     });
@@ -39,7 +35,7 @@ export class HeroFormDialogContainer implements OnInit {
       first(),
       takeUntilDestroyed(this.destroyRef)
     ).subscribe(() => {
-      if (this.router.url.includes('heroes/add')) {
+      if (this.router.url.includes('heroes/add') || this.router.url.includes('heroes/edit')) {
         this.router.navigate(['/home']);
       }
     });

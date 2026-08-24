@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { Hero, HeroFormVal } from '../models/hero.model';
 
 @Injectable({
@@ -15,5 +15,10 @@ export class HeroApi {
 
   addHero(heroFormVal: HeroFormVal): Observable<Hero> {
     return this.http.post<Hero>('mocks/heroes.json', heroFormVal)
+  }
+
+  editHero(id: string, heroFormVal: HeroFormVal): Observable<Hero> {
+    const mockUpdatedHero: Hero = { id, ...heroFormVal };
+    return of(mockUpdatedHero);
   }
 }

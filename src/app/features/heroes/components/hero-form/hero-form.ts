@@ -1,14 +1,16 @@
-import { Component, inject, DestroyRef } from '@angular/core';
+import { Component, inject, DestroyRef, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators, ReactiveFormsModule } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatButtonModule } from '@angular/material/button';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { Router } from '@angular/router';
 import { Heroes } from '../../services/heroes';
 import { Spinner } from '../../services/spinner';
 import { HeroFormVal } from '../../models/hero.model';
-import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 export type HeroFormControls = {
   name: FormControl<string>;
@@ -35,6 +37,8 @@ export class HeroForm {
   readonly spinner = inject(Spinner);
   private readonly heroes = inject(Heroes);
   private readonly destroyRef = inject(DestroyRef);
+  private readonly route = inject(ActivatedRoute);
+  private readonly router = inject(Router);
 
   heroForm = new FormGroup<HeroFormControls>({
     name: new FormControl('', {
@@ -62,14 +66,40 @@ export class HeroForm {
     })
   });
 
+  ngOnInit(): void {
+    this.route.queryParams
+      .pipe(takeUntilDestroyed(this.destroyRef))
+      .subscribe((params) => {
+        const statusValue = params['status'];
+        const validStatuses: Array<HeroFormControls['status']['value']> = ['available', 'missing', 'dead'];
+
+        this.heroForm.patchValue({
+          name: params['name'] ?? '',
+          location: params['location'] ?? '',
+          power: params['power'] ? Number(params['power']) : 0,
+          status: validStatuses.includes(statusValue) ? statusValue : 'available',
+          motto: params['motto'] ?? ''
+        });
+      });
+  }
+
   onSubmit(): void {
-    if (this.heroForm.valid) {
-      const formVal: HeroFormVal = this.heroForm.getRawValue();
-      this.heroes.addHero(formVal)
-      .pipe(
-        takeUntilDestroyed(this.destroyRef)
-      )
-      .subscribe();
+    const segments = this.router.url;
+    const pathSegments = segments.split('?')[0].split('/');
+    const editIndex = pathSegments.indexOf('edit');
+    const heroId = editIndex !== -1 ? pathSegments[editIndex + 1] ?? null : null;
+    const formVal: HeroFormVal = this.heroForm.getRawValue();
+
+    if (this.heroForm.invalid) {
+      return;
     }
+
+    const request$ = heroId
+      ? this.heroes.editHero(heroId, formVal)
+      : this.heroes.addHero(formVal);
+
+    request$
+      .pipe(takeUntilDestroyed(this.destroyRef))
+      .subscribe();
   }
 }

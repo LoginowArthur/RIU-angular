@@ -1,5 +1,5 @@
 import { inject, Injectable, signal } from '@angular/core';
-import { tap, catchError, throwError } from 'rxjs';
+import { tap, catchError, throwError, Observable } from 'rxjs';
 import { Hero, HeroFormVal } from '../models/hero.model';
 import { HeroApi } from './hero-api';
 import { Router } from '@angular/router';
@@ -43,6 +43,23 @@ export class Heroes {
         return throwError(() => error);
       })
     )
+  }
+
+  editHero(id: string, hero: HeroFormVal): Observable<Hero> {
+    const updatedHero: Hero = { ...hero, id };
+
+    return this.heroApi.editHero(id, updatedHero).pipe(
+      tap(() => {
+        this.heroesSource.update(heroes =>
+          heroes.map(h => h.id === id ? updatedHero : h)
+        );
+        this.router.navigate(['/home']);
+      }),
+      catchError(error => {
+        console.error('Failed to edit hero:', error);
+        return throwError(() => error);
+      })
+    );
   }
 
   removeHero(id: string) {

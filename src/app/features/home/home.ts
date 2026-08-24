@@ -46,8 +46,12 @@ export class Home {
     this.router.navigate(['/heroes/add']);
   }
 
-  onEdit(id: string): void {
-    console.log('on edit', id);
+  onEdit(heroId: string): void {
+    const hero = this.heroes().find(hero => hero.id === heroId);
+    const { id: _, ...heroData } = hero!;
+    this.router.navigate(['/heroes/edit', heroId], {
+      queryParams: heroData
+    });
   }
 
   onDelete(id: string): void {
