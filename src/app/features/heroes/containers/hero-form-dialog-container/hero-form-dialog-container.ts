@@ -1,7 +1,9 @@
 import { Component, OnInit, inject } from '@angular/core';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { MatDialog } from '@angular/material/dialog';
-import { ActivatedRoute, Router } from '@angular/router';
-import { HeroForm } from '../../components/hero-form/hero-form'
+import { Router, NavigationEnd } from '@angular/router';
+import { filter, first } from 'rxjs/operators';
+import { HeroForm } from '../../components/hero-form/hero-form';
 
 @Component({
   selector: 'app-hero-form-dialog-container',
@@ -10,17 +12,26 @@ import { HeroForm } from '../../components/hero-form/hero-form'
   styleUrl: './hero-form-dialog-container.scss',
 })
 export class HeroFormDialogContainer implements OnInit {
-  private dialog = inject(MatDialog);
-  private route = inject(ActivatedRoute);
-  private router = inject(Router);
+  private readonly dialog = inject(MatDialog);
+  private readonly router = inject(Router);
 
-  ngOnInit() {
+  ngOnInit(): void {
+    if (!this.router.url.includes('heroes/add')) {
+      return;
+    }
+
     const dialogRef = this.dialog.open(HeroForm, {
       width: '800px',
     });
 
-    dialogRef.afterClosed().subscribe(result => {
-      this.router.navigate(['/home']);
+    this.router.events.pipe(
+      filter((event): event is NavigationEnd => event instanceof NavigationEnd),
+      filter(event => !event.urlAfterRedirects.includes('heroes/add')),
+      first()
+    ).subscribe((event) => {
+      if (!event.urlAfterRedirects.includes('heroes/add')) {
+        dialogRef.close();
+      }
     });
   }
 }

@@ -1,32 +1,39 @@
-<form [formGroup]="heroForm" (ngSubmit)="onSubmit()">
-    <mat-form-field>
-        <mat-label>Name</mat-label>
-        <input matInput type="text" id="name" formControlName="name">
-    </mat-form-field>
-    <mat-form-field>
-        <mat-label>Location</mat-label>
-        <input matInput type="text" id="location" formControlName="location">
-    </mat-form-field>
-    <mat-form-field>
-        <mat-label>Power</mat-label>
-        <input matInput type="number" id="power" formControlName="power" min="0" max="100">
-    </mat-form-field>
-    <mat-form-field>
-        <mat-label>Motto</mat-label>
-        <input matInput type="text" id="motto" formControlName="motto">
-    </mat-form-field>
-    <mat-radio-group formControlName="status" aria-label="Select a hero status">
-        <mat-radio-button value="1">Available</mat-radio-button>
-        <mat-radio-button value="2">Missing</mat-radio-button>
-        <mat-radio-button value="3">Dead</mat-radio-button>
-    </mat-radio-group>
-
-    <div class="footer">
-        <button matButton="filled" type="submit" [disabled]="heroForm.invalid">
-            Save
-        </button>
+@if(spinner.isLoading()) {
+    <div class="spinner-overlay">
+        <mat-spinner diameter="50"></mat-spinner>
     </div>
-</form> 
+} @else  {
+    <form [formGroup]="heroForm" (ngSubmit)="onSubmit()">
+        <mat-form-field>
+            <mat-label>Name</mat-label>
+            <input matInput type="text" id="name" formControlName="name">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Location</mat-label>
+            <input matInput type="text" id="location" formControlName="location">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Power</mat-label>
+            <input matInput type="number" id="power" formControlName="power" min="0" max="100">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Motto</mat-label>
+            <input matInput type="text" id="motto" formControlName="motto">
+        </mat-form-field>
+        <mat-radio-group formControlName="status" aria-label="Select a hero status">
+            <mat-radio-button value="available">Available</mat-radio-button>
+            <mat-radio-button value="missing">Missing</mat-radio-button>
+            <mat-radio-button value="dead">Dead</mat-radio-button>
+        </mat-radio-group>
+    
+        <div class="footer">
+            <button matButton="filled" type="submit" [disabled]="heroForm.invalid">
+                Save
+            </button>
+        </div>
+    </form> 
+}
+
 
 
 

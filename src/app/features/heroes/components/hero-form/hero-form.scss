@@ -17,5 +17,11 @@
     mat-form-field, mat-radio-group {
        width: 100%;
     }
+
+    .spinner-overlay {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 }
 
