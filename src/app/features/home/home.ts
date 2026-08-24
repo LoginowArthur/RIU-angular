@@ -1,5 +1,4 @@
 import { Component, inject, signal, computed, ChangeDetectionStrategy } from '@angular/core';
-import { AsyncPipe } from '@angular/common';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatPaginatorModule, PageEvent } from '@angular/material/paginator';
@@ -12,7 +11,6 @@ import { Router } from '@angular/router';
   selector: 'app-home',
   imports: [
     HeroesListItem, 
-    AsyncPipe, 
     MatFormFieldModule, 
     MatInputModule, 
     MatPaginatorModule,
