@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Hero } from '../models/hero.model';
+import { Hero, HeroFormVal } from '../models/hero.model';
 
 @Injectable({
   providedIn: 'root',
@@ -13,7 +13,7 @@ export class HeroApi {
     return this.http.get<Hero[]>('mocks/heroes.json');
   }
 
-//   getHeroById(): Observable<Hero> {
-//     return this.http.get<Hero[]>('mocks/heroes.json');
-//   }
+  addHero(heroFormVal: HeroFormVal): Observable<Hero> {
+    return this.http.post<Hero>('mocks/heroes.json', heroFormVal)
+  }
 }

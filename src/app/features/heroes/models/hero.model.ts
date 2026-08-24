@@ -6,3 +6,5 @@ export type Hero = {
   status: 'available' | 'missing' | 'dead',
   motto: string
 }
+
+export type HeroFormVal = Omit<Hero, 'id'>
