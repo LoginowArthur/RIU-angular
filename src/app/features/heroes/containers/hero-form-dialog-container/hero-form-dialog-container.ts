@@ -1,4 +1,4 @@
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, OnInit, inject, DestroyRef } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { MatDialog } from '@angular/material/dialog';
 import { Router, NavigationEnd } from '@angular/router';
@@ -14,6 +14,7 @@ import { HeroForm } from '../../components/hero-form/hero-form';
 export class HeroFormDialogContainer implements OnInit {
   private readonly dialog = inject(MatDialog);
   private readonly router = inject(Router);
+  private readonly destroyRef = inject(DestroyRef);
 
   ngOnInit(): void {
     if (!this.router.url.includes('heroes/add')) {
@@ -31,6 +32,15 @@ export class HeroFormDialogContainer implements OnInit {
     ).subscribe((event) => {
       if (!event.urlAfterRedirects.includes('heroes/add')) {
         dialogRef.close();
+      }
+    });
+
+    dialogRef.afterClosed().pipe(
+      first(),
+      takeUntilDestroyed(this.destroyRef)
+    ).subscribe(() => {
+      if (this.router.url.includes('heroes/add')) {
+        this.router.navigate(['/home']);
       }
     });
   }
