@@ -1,5 +1,5 @@
 import { inject, Injectable, signal } from '@angular/core';
-import { Observable, tap } from 'rxjs';
+import { tap, catchError, throwError } from 'rxjs';
 import { Hero, HeroFormVal } from '../models/hero.model';
 import { HeroApi } from './hero-api';
 import { Router } from '@angular/router';
@@ -35,6 +35,12 @@ export class Heroes {
       tap(() => {
         this.heroesSource.update(heroes => [...heroes, heroWithId]);
         this.router.navigate(['/home']);
+      }),
+      catchError(error => {
+        // add dialog or snackbar here
+        console.error('Failed to add hero:', error);
+        
+        return throwError(() => error);
       })
     )
   }
