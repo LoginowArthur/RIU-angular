@@ -30,13 +30,29 @@ export class Home {
   
   readonly pageSize = signal<number>(10);
   readonly pageIndex = signal<number>(0);
+  readonly searchTerm = signal<string>('');
 
+  readonly filteredHeroes = computed(() => {
+    const term = this.searchTerm().toLowerCase().trim();
+    if (!term) return this.heroes();
+
+    return this.heroes().filter(hero => 
+      hero.name.toLowerCase().includes(term) || 
+      hero.id.toLowerCase().includes(term)
+    );
+  });
 
   readonly paginatedHeroes = computed(() => {
     const start = this.pageIndex() * this.pageSize();
     const end = start + this.pageSize();
-    return this.heroes().slice(start, end);
+    return this.filteredHeroes().slice(start, end);
   });
+
+  onSearchChange(event: Event): void {
+    const value = (event.target as HTMLInputElement).value;
+    this.searchTerm.set(value);
+    this.pageIndex.set(0);
+  }
 
   handlePageEvent(event: PageEvent): void {
     this.pageSize.set(event.pageSize);
