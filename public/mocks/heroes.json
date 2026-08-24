@@ -2,151 +2,241 @@
   {
     "id": "f47ac10b-58cc-4372-a567-0e02b2c3d479",
     "name": "Aetheris",
-    "status": "available"
+    "location": "Vanguard Sector 7",
+    "power": 88,
+    "status": "available",
+    "motto": "Always Ready"
   },
   {
     "id": "7c9e6679-7425-40de-944b-e07fc1f90ae7",
     "name": "Valerie Vance",
-    "status": "available"
+    "location": "Neo Veridia",
+    "power": 94,
+    "status": "available",
+    "motto": "Swift Valor"
   },
   {
     "id": "3a18a992-3c1d-4f3d-9f4a-9c71985390ef",
     "name": "Kaelen Voss",
-    "status": "missing"
+    "location": "Iron Citadel",
+    "power": 76,
+    "status": "missing",
+    "motto": "Iron Minded"
   },
   {
     "id": "b1b3690d-42bc-442a-a9fa-9db69e12bf24",
     "name": "Nyx Sovereign",
-    "status": "available"
+    "location": "Obsidian Deep",
+    "power": 91,
+    "status": "available",
+    "motto": "Shadow Calls"
   },
   {
     "id": "a90ef59a-115f-4a0b-93f5-7d5eb4516bfd",
     "name": "Marcus Stone",
-    "status": "dead"
+    "location": "Apex Spire",
+    "power": 65,
+    "status": "dead",
+    "motto": "Stand Firm"
   },
   {
     "id": "e6741b80-87a1-4d3e-90f7-3e2840d216f4",
     "name": "Lyra Frost",
-    "status": "available"
+    "location": "Boreal Expanse",
+    "power": 82,
+    "status": "available",
+    "motto": "Freeze All"
   },
   {
     "id": "84d7a858-6a3f-42e6-81a1-30d8d0b5e408",
     "name": "Theron Drake",
-    "status": "available"
+    "location": "Ashen Peak",
+    "power": 89,
+    "status": "available",
+    "motto": "Burn Bright"
   },
   {
     "id": "96c21a97-9e32-4e44-8d96-c67d16a5d4d3",
     "name": "Astrid Lind",
-    "status": "available"
+    "location": "Solaris Prime",
+    "power": 98,
+    "status": "available",
+    "motto": "Pure Light"
   },
   {
     "id": "1b0a8f89-8d5f-426a-9f5b-11c5005e839e",
     "name": "Garrick Holt",
-    "status": "missing"
+    "location": "The Badlands",
+    "power": 54,
+    "status": "missing",
+    "motto": "No Retreat"
   },
   {
     "id": "59b2d83e-9b2f-410a-b31c-3e3c04d16ef8",
     "name": "Elena Rostova",
-    "status": "available"
+    "location": "Aero Harbor",
+    "power": 73,
+    "status": "available",
+    "motto": "Rise Above"
   },
   {
     "id": "d1c07a34-2e9a-4c28-97f2-bd55462719a8",
     "name": "Dante Reyes",
-    "status": "dead"
+    "location": "Sub-Level 4",
+    "power": 85,
+    "status": "dead",
+    "motto": "Never Yield"
   },
   {
     "id": "4e7a8843-983e-4b46-a496-5b92ff150031",
     "name": "Saria Chen",
-    "status": "available"
+    "location": "Kyoto Nexus",
+    "power": 90,
+    "status": "available",
+    "motto": "Silent Edge"
   },
   {
     "id": "c8d4512e-13a8-4f8a-a71d-f8d9b13926e2",
     "name": "Orion Cross",
-    "status": "missing"
+    "location": "Starlight Base",
+    "power": 79,
+    "status": "missing",
+    "motto": "Guide Stars"
   },
   {
     "id": "622e964d-5db3-4e47-a8b2-57b85f67a6d6",
     "name": "Freya Sterling",
-    "status": "available"
+    "location": "Aegis Station",
+    "power": 87,
+    "status": "available",
+    "motto": "Shield Up"
   },
   {
     "id": "05f7ef54-47b2-4d3b-821d-937b83d1c8f1",
     "name": "Zane Sterling",
-    "status": "available"
+    "location": "Krypton Grid",
+    "power": 92,
+    "status": "available",
+    "motto": "Power First"
   },
   {
     "id": "2b380f72-9b2e-4b71-92b8-d4563a45c3bb",
     "name": "Talia Al-Mansoor",
-    "status": "available"
+    "location": "Dune Enclave",
+    "power": 81,
+    "status": "available",
+    "motto": "Sand Storms"
   },
   {
     "id": "fa80c851-d419-4b68-98e3-05903b41d019",
     "name": "Viktor Vane",
-    "status": "dead"
+    "location": "Gotham Ridge",
+    "power": 62,
+    "status": "dead",
+    "motto": "Truth Wins"
   },
   {
     "id": "ec820f92-5813-43c2-841f-8273641b9d42",
     "name": "Maya Lin",
-    "status": "available"
+    "location": "Hydro Basin",
+    "power": 77,
+    "status": "available",
+    "motto": "Flow Free"
   },
   {
     "id": "8d3e2261-0941-4775-802d-6062d854df11",
     "name": "Cassian Bell",
-    "status": "missing"
+    "location": "Titan Reach",
+    "power": 86,
+    "status": "missing",
+    "motto": "Break Chains"
   },
   {
     "id": "a1f5926c-d8bc-4b0d-9a99-b14e30ef2f82",
     "name": "Seraphina Blaze",
-    "status": "available"
+    "location": "Ember Ridge",
+    "power": 95,
+    "status": "available",
+    "motto": "Fiery Flame"
   },
   {
     "id": "2d15ab98-4629-4d6c-8e81-7fbd6923c72b",
     "name": "Cyrus Ward",
-    "status": "available"
+    "location": "Aegis Basin",
+    "power": 70,
+    "status": "available",
+    "motto": "Guard On"
   },
   {
     "id": "fe563e41-0118-4b7b-8321-ccb82db7d9e4",
     "name": "Nadia Petrov",
-    "status": "available"
+    "location": "Siberia Core",
+    "power": 83,
+    "status": "available",
+    "motto": "Cold Justice"
   },
   {
     "id": "9a384f93-5c31-417b-bd30-4e447bfa24d8",
     "name": "Xavier Vance",
-    "status": "available"
+    "location": "Mind Palace",
+    "power": 99,
+    "status": "available",
+    "motto": "Know All"
   },
   {
     "id": "0d6168e3-0cfa-4682-8eb2-b366224168c8",
     "name": "Iris Thorne",
-    "status": "missing"
+    "location": "Verdant Reach",
+    "power": 74,
+    "status": "missing",
+    "motto": "Bloom Strong"
   },
   {
     "id": "7648348b-eb0a-4712-88f1-857ebf0fb715",
     "name": "Harlan Gale",
-    "status": "available"
+    "location": "Tempest Atoll",
+    "power": 80,
+    "status": "available",
+    "motto": "Wind Strikes"
   },
   {
     "id": "bf847b31-4775-4c07-b362-e6488a088901",
     "name": "Beatrix Nova",
-    "status": "available"
+    "location": "Cosmic Gate",
+    "power": 96,
+    "status": "available",
+    "motto": "Beyond Time"
   },
   {
     "id": "51f28b2e-0ca8-4d57-b088-7e189856f4d0",
     "name": "Soren Kael",
-    "status": "dead"
+    "location": "Eclipse Vault",
+    "power": 68,
+    "status": "dead",
+    "motto": "Dark End"
   },
   {
     "id": "c1351532-6eb5-4a11-8be9-0f01a3cb2e50",
     "name": "Yara Silva",
-    "status": "available"
+    "location": "Amazon Hub",
+    "power": 84,
+    "status": "available",
+    "motto": "Wild Spirit"
   },
   {
     "id": "3127814b-2d4e-4f76-8051-789a42f534ef",
     "name": "Logan Pierce",
-    "status": "available"
+    "location": "Metro Center",
+    "power": 71,
+    "status": "available",
+    "motto": "City Guard"
   },
   {
     "id": "eb349a1d-a083-4a12-87ff-7a26f043bf73",
     "name": "Zoe Mercer",
-    "status": "available"
+    "location": "Quantum Lab",
+    "power": 89,
+    "status": "available",
+    "motto": "Shift Reality"
   }
 ]
