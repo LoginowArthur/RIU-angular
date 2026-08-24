@@ -11,6 +11,12 @@
         gap: 8px;
     }
 
+    .list-footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
     mat-form-field {
         width: 100%;
     }
