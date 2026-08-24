@@ -36,6 +36,8 @@ describe('Heroes', () => {
       ],
     });
 
+    vi.spyOn(console, 'error').mockImplementation(() => {});
+    
     service = TestBed.inject(Heroes);
   });
 
