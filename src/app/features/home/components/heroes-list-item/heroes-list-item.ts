@@ -1,4 +1,4 @@
-import { Component, input, output } from '@angular/core';
+import { Component, input, output, ChangeDetectionStrategy } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
@@ -9,6 +9,7 @@ import { MatButtonModule } from '@angular/material/button';
   imports: [MatCardModule, MatButtonModule, MatIconModule],
   templateUrl: './heroes-list-item.html',
   styleUrl: './heroes-list-item.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HeroesListItem {
   name = input('');
