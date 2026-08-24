@@ -8,7 +8,7 @@
             [id]="hero.id" 
             [name]="hero.name"
             (edit)="onEdit($event)" 
-            (delete)="onDelete($event)">
+            (delete)="onDelete(hero.id)">
         </heroes-list-item>
     }
 </div>
